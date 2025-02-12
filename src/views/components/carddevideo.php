@@ -17,8 +17,8 @@
 <body>
 
     <div>
-        <h1>Card do Luke</h1>
-        <button>like</button>
+        <h2>título do vídeo</h2>
+        <p>visualizações</p>  <p>publicado</p>
     </div>
 
 </body>
