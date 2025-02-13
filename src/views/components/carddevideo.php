@@ -19,13 +19,25 @@
     <div class="container">
         <div class="card-de-video">
             <div class="container-capa">
-                <img src="https://img.global.news.samsung.com/br/wp-content/uploads/2023/04/m54_2.jpg" alt="">
+                <img src="" alt="">
             </div> 
 
             <div class="container-info">
-                <p>Rafael Germinari</p>
-                <span>Como fazer um kaiko em 10 passos simples</span>
-                <p>53k views • 2 semanas atrás</p>
+            <?php
+          if ($result->num_rows > 0) {
+              while ($row = $result->fetch_assoc()) {
+                  echo "<div class='card'>
+                      <img class='card-img' src='https://cdn0.casamentos.com.br/vendor/7952/3_2/960/jpg/16125676385173_13_307952-161290249528500.jpeg' alt='img do card'>
+                      <h3 class='card-title'>{$row['nome']}</h3>
+                      <p class='card-subtitle'>{$row['descricao']}</p>
+                      <p class='card-subtitle'>Capacidade: {$row['capacidade']}</p>
+                      <button class='reservar-btn' data-id='{$row['id_espaco']}'>Reservar</button>
+                  </div>";
+              }
+          } else {
+              echo "<p>Nenhum vídeo publicado ainda.</p>";
+          }
+          ?>    
             </div>
         </div>
     </div>
@@ -63,7 +75,7 @@
 
     .card-de-video {
         overflow: hidden;
-        color: white;
+        color: #1b1b1b;
         width: 300px;
         height: 350px;
         background-color: rgb(27, 27, 27);
