@@ -1,55 +1,132 @@
+<?php
 
- 
+    //
+
+?>
+
+<!-- H T M L -->
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cards de Vídeos</title>
-<script src="https://cdn.tailwindcss.com"></script>
+    <title>componente de card de video</title>
 </head>
-<body class="flex items-center justify-center min-h-screen bg-gray-900">
- 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
-        <?php
-        if ($result->num_rows > 0) {
-            while ($video = $result->fetch_assoc()) {
-        ?>
-        <div class="max-w-sm bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-            
-                <!-- thumbnail -->
-            <div class="relative">
-                <img class="w-full h-48 object-cover" src="<?= $video['thumbnail']; ?>" alt="Thumbnail do vídeo">
-                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                    <a href="<?= $video['url']; ?>" target="_blank" class="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center shadow-lg">
-                        ▶
-                    </a>
-                </div>
-            </div>
- 
-                <!-- conteúdo -->
-            <div class="p-4">
-                <h2 class="text-white text-lg font-bold"><?= htmlspecialchars($video['titulo']); ?></h2>
-                <p class="text-gray-400 text-sm mt-1"><?= htmlspecialchars($video['descricao']); ?></p>
- 
-                <!-- botões -->
-                <div class="mt-4 flex items-center justify-between">
-                    <a href="<?= $video['url']; ?>" target="_blank" class="text-sm bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700">
-                        Assistir
-                    </a>
-                    <button class="text-sm text-gray-300 hover:text-gray-100">
-                        + Adicionar à Lista
-                    </button>
-                </div>
+
+<body>
+
+    <div class="container">
+        <div class="card-de-video">
+            <div class="container-capa">
+                <img src="" alt="">
+            </div> 
+
+            <div class="container-info">
+            <?php
+          if ($result->num_rows > 0) {
+              while ($row = $result->fetch_assoc()) {
+                  echo "<div class='card'>
+                      <img class='card-img' src='https://cdn0.casamentos.com.br/vendor/7952/3_2/960/jpg/16125676385173_13_307952-161290249528500.jpeg' alt='img do card'>
+                      <h3 class='card-title'>{$row['nome']}</h3>
+                      <p class='card-subtitle'>{$row['descricao']}</p>
+                      <p class='card-subtitle'>Capacidade: {$row['capacidade']}</p>
+                      <button class='reservar-btn' data-id='{$row['id_espaco']}'>Reservar</button>
+                  </div>";
+              }
+          } else {
+              echo "<p>Nenhum vídeo publicado ainda.</p>";
+          }
+          ?>    
             </div>
         </div>
-        <?php
-            }
-        } else {
-            echo "<p class='text-white'>Nenhum vídeo encontrado.</p>";
-        }
-        ?>
     </div>
- 
+
 </body>
 </html>
+
+<!-- S T Y L E -->
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+    * {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    .card-de-video {
+        overflow: hidden;
+        color: #1b1b1b;
+        width: 300px;
+        height: 350px;
+        background-color: rgb(27, 27, 27);
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .container-capa {
+        width: 100%;
+        height: 50%;
+        background-color: #2a2a2a;
+    }
+
+    .container-capa img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .container-info {
+        width: 100%;
+        height: 50%;
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .perfil {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .foto {
+        width: 75px;
+        height: 75px;
+        border-radius: 100%;
+        object-fit: cover;
+        background-color: blue;
+        overflow: hidden;
+    }
+
+    h3 {
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+    }
+
+    p {
+        font-size: 14px;
+        color: grey;
+    }
+</style>
