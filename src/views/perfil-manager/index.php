@@ -1,3 +1,13 @@
+<?php
+
+require "../components/utils/buttonComponent.php";
+require "../components/utils/inputComponent.php";
+
+use function Src\Views\Components\Utils\ButtonComponent;
+use function Src\Views\Components\Utils\InputComponent;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,33 +35,20 @@
         </div>
 
         <div class="flex flex-col gap-6 my-10">
-            <div>
-                <label class="block  text-[20px] mb-4">Nome do usuários</label>
-                <input type="text" class="w-[796px] h-[50px] outline outline-1 outline-gray-500 rounded-lg pl-3" placeholder="@Rafael">
-            </div>
+            <?= InputComponent(type: "text", placeholder: "@Rafael", label: "Nome do usuário"); ?>
             
-            <div>
-                <label class="block  text-[20px] mb-4">E-mail</label>
-                <input type="text" class="w-[796px] h-[50px] outline outline-1 outline-gray-500 rounded-lg pl-3" placeholder="rafaelbonitao@senac.ms.com">
-            </div>
+            <?= InputComponent(type: "email", placeholder: "rafaelbonitao@senac.ms.com", label: "Nome do usuário"); ?>
             
-            <div>
-                <label class="block  text-[20px] mb-4">Senha</label>
-                <input type="text" class="w-[796px] h-[50px] outline outline-1 outline-gray-500 rounded-lg pl-3" placeholder="************">
-            </div>
+            <?= InputComponent(type: "password", placeholder: "***************", label: "Nome do usuário"); ?>
             
-            <div>
-                <label class="block  text-[20px] mb-4">Categorias de interesse</label>
-                <input type="text" class="w-[796px] h-[50px] outline outline-1 outline-gray-500 rounded-lg pl-3" placeholder="Tecnologia, Estética">
-            </div>
+            <?= InputComponent(type: "text", placeholder: "Tecnologia, Estética", label: "Nome do usuário"); ?>
         </div>
 
         <div class="flex gap-10 justify-end">
-            <button class="w-[250px] h-[50px] outline outline-1 outline-purple-500 rounded-sm font-semibold">Cancelar</button>
-
-            <button class="w-[250px] h-[50px] bg-purple-700 rounded-sm font-semibold">Salvar alterações</button>
+            <?= ButtonComponent(text: "Cancelar", variant: "outline") ?>
+            
+            <?= ButtonComponent(text: "Salvar alterações", variant: "default") ?>
         </div>
-
 
     </div>
 
