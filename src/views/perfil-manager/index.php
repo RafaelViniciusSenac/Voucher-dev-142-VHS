@@ -19,7 +19,7 @@ use function Src\Views\Components\Utils\InputComponent;
 
 <body class="bg-black text-white flex justify-center item-center w-screen h-screen">
     
-    <div class="flex flex-col justify-center item-center max-w-[796px]">
+    <div class="flex flex-col justify-center item-center w-full max-w-1/3">
 
         <div class="mb-10">
             <h1 class="font-semibold text-[30px]">Gerenciar Perfil</h1>
@@ -30,7 +30,7 @@ use function Src\Views\Components\Utils\InputComponent;
             <img src="../../../public/images/foto_perfil.svg" alt="">
             <div class="flex flex-col justify-center">
                 <h1 class="font-semibold text-[20px]">Foto de perfil</h1>
-                <p class="text-gray-200 max-w-[780px]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aut quisquam sed accusamus ipsa quod cupiditate, repudiandae odio eaque vero eligendi rem unde nulla molestiae omnis illo ut recusandae numquam!</p>
+                <p class="text-gray-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit aut quisquam sed accusamus ipsa quod cupiditate, repudiandae odio eaque vero eligendi rem unde nulla molestiae omnis illo ut recusandae numquam!</p>
             </div>
         </div>
 
