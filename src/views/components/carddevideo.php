@@ -15,32 +15,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Card de vídeo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-[#0c0118] flex items-center justify-center h-screen w-screen">
 
-    <div class="video-container">
+    <div class="flex flex-wrap gap-6">
         <?php foreach ($videos as $video): ?>
-            <div class="video-card">
-                <div class="container-absolute">
-                    <div class="container-duration">
-                        <div class="duration">
-                            <span><?php echo htmlspecialchars($video['duracao']) ?></span>
-                        </div>
+            <div class="relative max-w-[300px] max-h-[350px] min-w-[300px] min-h-[350px] bg-[#242730] rounded-3xl overflow-hidden">
+                <!-- Capa do Vídeo -->
+                <div class="absolute w-full h-full flex items-center justify-end p-4">
+                    <!-- Duração -->
+                    <div class="bg-[#4b4b4b80] text-white p-2 rounded-xl mt-2 mr-2">
+                        <span><?php echo htmlspecialchars($video['duracao']) ?></span>
                     </div>
-                    <div class="container-foto-usuario">
-                        <img src="<?php echo htmlspecialchars($video['foto_usuario']) ?>">
+
+                    <!-- Foto do Usuário -->
+                    <div class="w-12 h-12 rounded-full overflow-hidden mr-5">
+                        <img src="<?php echo htmlspecialchars($video['foto_usuario']) ?>" alt="Foto do Usuário" class="w-full h-full object-cover">
                     </div>
                 </div>
 
-                <div class="container-card">
-                    <img src="<?php echo htmlspecialchars($video['capa']); ?>" class="video-thumbnail">
+                <!-- Capa do Vídeo -->
+                <div class="w-full h-1/2">
+                    <img src="<?php echo htmlspecialchars($video['capa']); ?>" class="w-full h-full object-cover">
                 </div>
 
-                <div class="text-info">
-                    <p><?php echo htmlspecialchars($video['usuario']) ?? 'Usuário'; ?></p>
-                    <h3><?php echo htmlspecialchars($video['titulo']) ?? 'Carregando...'; ?></h3>
-                    <p><?php echo number_format($video['visualizacoes']) ?? '0'; ?> K • <?php echo date('d/m/Y', strtotime($video['data_postagem'])); ?></p>
+                <!-- Info do Vídeo -->
+                <div class="text-white p-5 h-1/2 flex flex-col justify-between">
+                    <p class="opacity-50"><?php echo htmlspecialchars($video['usuario']) ?? 'Usuário'; ?></p>
+                    <h3 class="text-xl font-medium"><?php echo htmlspecialchars($video['titulo']) ?? 'Carregando...'; ?></h3>
+                    <p class="opacity-50"><?php echo number_format($video['visualizacoes']) ?? '0'; ?> K • <?php echo date('d/m/Y', strtotime($video['data_postagem'])); ?></p>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -48,129 +53,3 @@
 
 </body>
 </html>
-
-<!-- S T Y L E -->
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-    * {
-        font-family: "Poppins";
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    body {
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(12, 1, 24, 1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .container-duration {
-        top: 0;
-        background-color: rgba(36, 39, 48, 1, 0.5);
-        color: white;
-        position: absolute;
-    } .duration {
-        padding: 5px;
-        background-color: rgba(75, 75, 75, 0.5);
-        border-radius: 8px;
-        margin-top: 10px;
-        margin-right: 10px;
-    }
-
-    .container-absolute {
-        padding: 5px;
-        display: flex;
-        overflow: hidden;
-        display: flex;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        align-items: center;
-        justify-content: flex-end;
-    }
-    
-    .container-foto-usuario {
-        border-radius: 100%;
-        margin-right: 20px;
-        width: 50px;
-        height: 50px;
-        overflow: hidden;
-    }
-
-    .text-info {
-        color: white;
-        height: 50%;
-        width: 100%;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    } p {
-        opacity: 0.5;
-    }
-
-    .container-card {
-        width: 100%;
-        height: 50%;
-        border: none;
-    }
-
-    .video-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 25px;
-    }
-    .video-card {
-        position: relative;
-        overflow: hidden;
-        max-width: 300px;
-        max-height: 350px;
-        min-width: 300px;
-        min-height: 350px;
-        border-radius: 25px;
-        background-color: rgba(36, 39, 48, 1);
-    }
-
-    .video-info {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-        justify-content: space-evenly;
-    }
-
-    .video-thumbnail {
-        background-color: green;
-        width: 100%;
-        height: 100%;
-        border: none;
-    }
-
-    .watch-button {
-        display: block;
-        text-align: center;
-        margin-top: 10px;
-        padding: 8px;
-        background: #ff0000;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-    }
-    .watch-button:hover {
-        background: #cc0000;
-    }
-</style>
