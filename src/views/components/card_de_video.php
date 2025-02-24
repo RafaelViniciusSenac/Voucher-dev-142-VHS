@@ -2,42 +2,48 @@
 
     require 'conexao.php';
 
-    // Função para gerar o card do vídeo
     function gerarCardVideo($video) {
+        $thumbnail_url = htmlspecialchars($video['thumbnail_url']);
+        $username = htmlspecialchars($video['username']);
+        $title = htmlspecialchars($video['title']);
+        $photo_url = htmlspecialchars($video['photo_url']);
+        
+        $duration = formatarDuracao($video['duration']);
+        $visualizations = formatarVisualizacoes($video['visualizations']);
+        $create_at = tempoDecorrido($video['create_at']);
+
         return "
             <div class='relative w-[320px] h-[400px] bg-[#1e1e2a] rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300'>
-
+                
                 <!-- Capa do vídeo -->
 
                 <div class='relative w-full h-[50%]'>
-                    <img src='" . htmlspecialchars($video['thumbnail_url']) . "' class='w-full h-full object-cover'>
-
+                    <img src='$thumbnail_url' class='w-full h-full object-cover'>
                     <!-- Duração no canto superior direito -->
                     <div class='absolute top-3 right-3 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded-md'>
-                        " . formatarDuracao($video['duration']) . "
+                        $duration
                     </div>
                 </div>
 
                 <!-- Informações do vídeo -->
 
                 <div class='p-4 text-white flex flex-col justify-between h-[45%]'>
-                    <p class='text-gray-400 text-sm'>" . htmlspecialchars($video['username']) . "</p>
+                    <p class='text-gray-400 text-sm'>$username</p>
                     <h3 class='text-lg font-bold leading-tight break-words overflow-hidden line-clamp-3' style='
                         display: -webkit-box;
                         -webkit-line-clamp: 3;
                         -webkit-box-orient: vertical;
                         text-overflow: ellipsis;'>
-                        " . htmlspecialchars($video['title']) . "
+                        $title
                     </h3>
-
-                    <p class='text-gray-400 text-sm'>" . formatarVisualizacoes($video['visualizations']) . " views • " . tempoDecorrido($video['create_at']) . "</p>
+                    <p class='text-gray-400 text-sm'>$visualizations views • $create_at</p>
                 </div>
 
                 <!-- Foto do Usuário -->
 
-                <div class='absolute inset-0 imagem'>
+                <div class='absolute inset-0 imagem flex justify-center items-center'>
                     <div class='w-[60px] h-[60px] flex absolute right-3'>
-                        <img src='" . htmlspecialchars($video['photo_url']) . "' alt='Foto' class='w-full h-full object-cover m-auto rounded-full'>
+                        <img src='$photo_url' alt='Foto' class='w-full h-full object-cover m-auto rounded-full'>
                     </div>
                 </div>
             </div>
@@ -70,11 +76,3 @@
 
 </body>
 </html>
-
-<style>
-    .imagem {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-</style>
