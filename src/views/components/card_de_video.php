@@ -42,7 +42,7 @@
                 <!-- Foto do Usuário -->
 
                 <div class='absolute inset-0 imagem flex justify-center items-center'>
-                    <div class='w-[60px] h-[60px] flex absolute right-3'>
+                    <div class='w-[60px] h-[60px] flex absolute right-5'>
                         <img src='$photo_url' alt='Foto' class='w-full h-full object-cover m-auto rounded-full'>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card de Vídeo</title>
+    <title>❖ Card de vídeo</title>
     <link rel="stylesheet" href="../../styles/global.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
