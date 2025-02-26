@@ -13,7 +13,6 @@
         $create_at = tempoDecorrido($video['create_at']);
 
         return "
-            <h1></h1>
             <div class='relative w-[320px] h-[400px] bg-[#1e1e2a] rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300'>
                 
                 <!-- Capa do vídeo -->

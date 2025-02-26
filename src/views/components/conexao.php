@@ -14,6 +14,13 @@
     $sql = "SELECT * FROM videos ORDER BY create_at DESC";
     $stmt = $conn->query($sql);
     $videos = $stmt->fetch_all(MYSQLI_ASSOC);
+
+    if (empty($videos)) {
+        echo "
+            <h1 style='color: white; opacity: 0.5; font-size: 20px'>Nenhum vídeo encontrado...</h1>
+        ";
+    }
+
 ?>
 
 <!-- # -->
