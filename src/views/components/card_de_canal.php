@@ -2,15 +2,14 @@
 
     require_once './formatar_cards.php';
 
-    function gerarCardVideo($video) {
-        $thumbnail_url = $video['thumbnail'];
-        $username = $video['username'];
-        $title = $video['title'];
-        $photo_url = $video['photo'];
+    function gerarCardCanal($video) {
+        $thumbnail_url = htmlspecialchars($video['thumbnail_url']);
+        $username = htmlspecialchars($video['username']);
+        $title = htmlspecialchars($video['title']);
         
-        $duration = formatarDuracao($video['duration']);
-        $visualizations = formatarVisualizacoes($video['views']);
-        $create_at = tempoDecorrido($video['created_at']);
+        $duration = formatarDuracao('1000');
+        $visualizations = formatarVisualizacoes($video['visualizations']);
+        $create_at = tempoDecorrido($video['create_at']);
 
         return "
             <div class='relative w-[320px] h-[400px] bg-[#1e1e2a] rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300'>
@@ -37,14 +36,6 @@
                         $title
                     </h3>
                     <p class='text-gray-400 text-sm'>$visualizations views • $create_at</p>
-                </div>
-
-                <!-- Foto do Usuário -->
-
-                <div class='absolute inset-0 imagem flex justify-center items-center'>
-                    <div class='w-[60px] h-[60px] flex absolute right-5'>
-                        <img src='$photo_url' class='w-full h-full object-cover rounded-full'>
-                    </div>
                 </div>
             </div>
         ";

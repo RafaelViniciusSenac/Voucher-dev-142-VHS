@@ -1,9 +1,15 @@
 <?php
 
-    require 'conexao.php';
+    require_once './formatar_cards.php';
 
-    function gerarCardEvento($evento) {
-        $thumbnail_url = htmlspecialchars($video['thumbnail_url']);
+    function gerarMeuCard($video) {
+        $thumbnail_url = 'https://t.ctcdn.com.br/69rFkwz-cdviPGZn2p_l6rJH0UA=/1200x675/smart/i533291.png';
+        $username = 'Rafael Germinari';
+        $title = htmlspecialchars($video['title']);
+        
+        $duration = formatarDuracao($video['duration']);
+        $visualizations = formatarVisualizacoes($video['visualizations']);
+        $create_at = tempoDecorrido($video['create_at']);
 
         return "
             <div class='relative w-[320px] h-[400px] bg-[#1e1e2a] rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300'>
@@ -31,14 +37,6 @@
                     </h3>
                     <p class='text-gray-400 text-sm'>$visualizations views • $create_at</p>
                 </div>
-
-                <!-- Foto do Usuário -->
-
-                <div class='absolute inset-0 imagem flex justify-center items-center'>
-                    <div class='w-[60px] h-[60px] flex absolute right-5'>
-                        <img src='$photo_url' alt='Foto' class='w-full h-full object-cover m-auto rounded-full'>
-                    </div>
-                </div>
             </div>
         ";
     }
@@ -52,17 +50,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❖ Card de Evento</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>❖ Meu card</title>
     <link rel="stylesheet" href="../../styles/global.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-[#0c0118] flex items-center justify-center min-h-screen p-10">
     
     <div class="flex flex-wrap gap-10 justify-center">
         <?php 
-        foreach ($eventos as $evento) {
-            echo gerarCardEvento($evento);
+        foreach ($videos as $video) {
+            echo gerarMeuCard($video);
         }
         ?>
     </div>

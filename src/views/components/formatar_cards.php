@@ -1,31 +1,34 @@
 <?php
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $database = "vhs_db";
-
-    $conn = new mysqli($servername, $username, $password, $database);
-
-    if ($conn->connect_error) {
-        die("Falha na conexão: " . $conn->connect_error);
-    }
-    
-    $sql = "SELECT * FROM videos ORDER BY create_at DESC";
-    $stmt = $conn->query($sql);
-    $videos = $stmt->fetch_all(MYSQLI_ASSOC);
-
-    if (empty($videos)) {
-        echo "
-            <h1 style='color: white; opacity: 0.5; font-size: 20px'>Nenhum vídeo encontrado...</h1>
-        ";
-    }
+    $videos = [
+        [
+            "duration" => 360,
+            "title" => "Como aprender programação do zero e se tornar um excelente desenvolvedor full stack",
+            "username" => "Canal Dev",
+            "thumbnail" => "https://t.ctcdn.com.br/69rFkwz-cdviPGZn2p_l6rJH0UA=/1200x675/smart/i533291.png",
+            "photo" => "https://cdn.awsli.com.br/10/10790/produto/292478529/fix-copo-bola-foto-1-7hxddc8b9q.jpg",
+            "views" => 1250000,
+            "created_at" => "2024-03-10 15:00:00"
+        ]
+        ,
+        [
+            "duration" => 600,
+            "title" => "Dicas para aumentar sua produtividade como programador",
+            "username" => "Produtividade Tech",
+            "thumbnail" => "https://t.ctcdn.com.br/69rFkwz-cdviPGZn2p_l6rJH0UA=/1200x675/smart/i533291.png",
+            "photo" => "https://cdn.awsli.com.br/10/10790/produto/292478529/fix-copo-bola-foto-1-7hxddc8b9q.jpg",
+            "views" => 840000,
+            "created_at" => "2024-02-28 18:30:00"
+        ]
+    ];
 
 ?>
 
 <!-- # -->
 
 <?php
+
+    // FORMATAÇÃO DE DURAÇÃO
 
     function formatarDuracao($segundos) {
 
@@ -38,9 +41,9 @@
 
         return sprintf("%d:%02d", $min, $seg);
     }
-
-    // ###########
     
+    // FORMATAÇÃO DE VISUALIZAÇÕES
+
     function formatarVisualizacoes($visualizacoes) {
 
         if ($visualizacoes >= 1000000000) {
@@ -54,8 +57,10 @@
         return $visualizacoes;
     }
 
+    // FORMATAÇÃO DE DATA DE POSTAGEM
+
     function tempoDecorrido($data) {
-        
+
         $segundos = time() - strtotime($data);
         $minutos = floor($segundos / 60);
         $horas = floor($minutos / 60);
