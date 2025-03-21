@@ -75,9 +75,21 @@ class CreateFastController {
                     "errors" => $errors
                 ];
             }
+            $created_at = date("Y-m-d H:i:s");
+            $updated_at = date("Y-m-d H:i:s");
 
             $fastModel = new FastModel();
-            $fastModel->create($title, $description, $duration, $target_audience, $type, $url, $thumbnail_url);
+            $fastModel->create(
+                $title, 
+                $description, 
+                $duration, 
+                $target_audience, 
+                $type, 
+                $url, 
+                $thumbnail_url,
+                $created_at,
+                $updated_at
+            );
 
             return [
                 "success" => true,
