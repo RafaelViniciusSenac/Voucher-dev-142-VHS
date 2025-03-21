@@ -2,20 +2,15 @@
 
 namespace Src\Application\Controllers;
 
-use Src\Application\Utils\EmailTransporter;
-use Src\Infra\Models\UserModel;
-
-use function Src\Application\Utils\verifyRecaptcha;
-require_once __DIR__ . '/../application/utils/verifyRecaptcha.php';
-require_once __DIR__ . '/../application/utils/emailTransporter.php';
-require_once __DIR__ . '/../infra/models/userModel.php';
-
+use Src\Infra\Models\VideoModel;
+use function Src\Infra\Models\listMostPopularVideo;
+require_once __DIR__ . '/../infra/models/videoModel.php';
 
 class ListVideoController {
     public function handle() {
         
         try {
-            if (!isset($_POST["categoty_id"])){
+            if (!isset($_POST["category_id"])){
                 http_response_code(400);
                 return [
                     "success" => false,
@@ -27,6 +22,23 @@ class ListVideoController {
                         ]
                     ]
                 ];
+            }
+
+
+            $listVideos = listMostPopularVideo();
+            if (empty($listVideos)){
+                http_response_code(400);
+                return [
+                    "success" => false,
+                    "errors" => [
+                        "error" => true,
+                        "missing_fields" => [
+                            "error_code" => 1,
+                            "message" => "Lista vazia, videos não encontrados"
+                        ]
+                    ]
+                ];
+
             }
         }
         
