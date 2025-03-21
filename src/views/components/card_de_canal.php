@@ -3,14 +3,14 @@
     require_once './formatar_cards.php';
 
     function gerarCardCanal($video) {
-        $thumbnail_url = htmlspecialchars($video['thumbnail_url']);
-        $username = htmlspecialchars($video['username']);
-        $title = htmlspecialchars($video['title']);
+        $thumbnail_url = $video['thumbnail'];
+        $username = $video['username'];
+        $title = $video['title'];
         
-        $duration = formatarDuracao('1000');
-        $visualizations = formatarVisualizacoes($video['visualizations']);
-        $create_at = tempoDecorrido($video['create_at']);
-
+        $duration = formatarDuracao($video['duration']);
+        $visualizations = formatarVisualizacoes($video['views']);
+        $create_at = tempoDecorrido($video['created_at']);
+        
         return "
             <div class='relative w-[320px] h-[400px] bg-[#1e1e2a] rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300'>
                 

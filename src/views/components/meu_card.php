@@ -3,14 +3,15 @@
     require_once './formatar_cards.php';
 
     function gerarMeuCard($video) {
-        $thumbnail_url = 'https://t.ctcdn.com.br/69rFkwz-cdviPGZn2p_l6rJH0UA=/1200x675/smart/i533291.png';
-        $username = 'Rafael Germinari';
-        $title = htmlspecialchars($video['title']);
+        $thumbnail_url = $video['thumbnail'];
+        $username = $video['username'];
+        $title = $video['title'];
+        $photo_url = $video['photo'];
         
         $duration = formatarDuracao($video['duration']);
-        $visualizations = formatarVisualizacoes($video['visualizations']);
-        $create_at = tempoDecorrido($video['create_at']);
-
+        $visualizations = formatarVisualizacoes($video['views']);
+        $create_at = tempoDecorrido($video['created_at']);
+        
         return "
             <div class='relative w-[320px] h-[400px] bg-[#1e1e2a] rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300'>
                 
