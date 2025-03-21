@@ -45,9 +45,9 @@
             <h1>Meus cards</h1>
 
             <?php 
-            foreach ($videos as $video) {
-                echo gerarMeuCard($video);
-            }
+            // foreach ($videos as $video) {
+            //     echo gerarMeuCard($video);
+            // }
             ?>
         </div>
     </div>
