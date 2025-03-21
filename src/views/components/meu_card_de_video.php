@@ -2,15 +2,8 @@
 
     require 'conexao.php';
 
-    function gerarCardVideo($video) {
+    function gerarCardEvento($evento) {
         $thumbnail_url = htmlspecialchars($video['thumbnail_url']);
-        $username = htmlspecialchars($video['username']);
-        $title = htmlspecialchars($video['title']);
-        $photo_url = htmlspecialchars($video['photo_url']);
-        
-        $duration = formatarDuracao($video['duration']);
-        $visualizations = formatarVisualizacoes($video['visualizations']);
-        $create_at = tempoDecorrido($video['create_at']);
 
         return "
             <div class='relative w-[320px] h-[400px] bg-[#1e1e2a] rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300'>
@@ -55,21 +48,21 @@
 <!-- H T M L --> <!-- T E S T E -->
 
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❖ Card de vídeo</title>
-    <link rel="stylesheet" href="../../styles/global.css">
+    <title>❖ Card de Evento</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../../styles/global.css">
 </head>
 
 <body class="bg-[#0c0118] flex items-center justify-center min-h-screen p-10">
     
     <div class="flex flex-wrap gap-10 justify-center">
         <?php 
-        foreach ($videos as $video) {
-            echo gerarCardVideo($video);
+        foreach ($eventos as $evento) {
+            echo gerarCardEvento($evento);
         }
         ?>
     </div>
