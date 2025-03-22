@@ -38,7 +38,7 @@
                         $title
                     </h3>
 
-                    <p class='text-gray-400 text-sm'>$visualizations views • $create_at</p>
+                    <p class='text-gray-400 text-base'>$visualizations views • $create_at</p>
                 </div>
             </a>
         ";

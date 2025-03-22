@@ -7,7 +7,9 @@
         $username = $video['username'];
         $title = $video['title'];
         $url = '#';
-        
+        $comments = 12;
+        $likes = 4.5;
+
         $duration = formatarDuracao($video['duration']);
         $visualizations = formatarVisualizacoes($video['views']);
         $create_at = tempoDecorrido($video['created_at']);
@@ -43,14 +45,14 @@
                             <div>
                                 <img src='../../../public/icons/message_icon.svg' class='w-full h-full'>
                             </div>
-                            <p class='text-gray-400 text-lg'>12</p>
+                            <p class='text-gray-400 text-lg'>$comments</p>
                         </div>
 
                         <div class='flex gap-2'>
                             <div>
                                 <img src='../../../public/icons/like.svg' class='w-full h-full'>
                             </div>
-                            <p class='text-gray-400 text-lg'>4.5</p>
+                            <p class='text-gray-400 text-lg'>$likes</p>
                         </div>
 
                         <div class='flex gap-2'>
