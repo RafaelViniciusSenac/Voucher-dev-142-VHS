@@ -14,7 +14,7 @@
         $visualizations = formatarVisualizacoes($video['views']);
         $create_at = tempoDecorrido($video['created_at']);
 
-        if (verificarConta($video['account_type']) == "verified") {
+        if (verificarConta($video['account_type']) == true) {
             return "
                 <a href='$url' class='cursor-pointer relative w-[320px] h-[400px] bg-[#1e1e2a] rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300'>
                     
@@ -29,8 +29,9 @@
 
                     <!-- Informações do vídeo -->
 
-                    <div class='p-4 text-white flex flex-col justify-between h-[45%]'>
-                        <p class='text-gray-400 text-sm'>$username</p>
+                    <div class='p-4 text-white flex flex-col justify-between h-[50%]'>
+                        <p class='text-gray-400 text-base'>$username</p>
+
                         <h3 class='text-xl leading-tight break-words overflow-hidden line-clamp-3' style='
                             display: -webkit-box;
                             -webkit-line-clamp: 3;
@@ -38,7 +39,7 @@
                             text-overflow: ellipsis;'>
                             $title
                         </h3>
-                        <p class='text-gray-400 text-sm'>$visualizations views • $create_at</p>
+                        <p class='text-gray-400 text-base'>$visualizations views • $create_at</p>
                     </div>
 
                     <!-- Foto do Usuário -->
@@ -57,7 +58,9 @@
                 
                 </a>
             ";
-        } else {
+        }
+
+        if (verificarConta($video['account_type']) == false) {
             return "
                 <a href='$url' class='cursor-pointer relative w-[320px] h-[400px] bg-[#1e1e2a] rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300'>
                     
@@ -72,8 +75,9 @@
 
                     <!-- Informações do vídeo -->
 
-                    <div class='p-4 text-white flex flex-col justify-between h-[45%]'>
+                    <div class='p-4 text-white flex flex-col justify-between h-[50%]'>
                         <p class='text-gray-400 text-sm'>$username</p>
+
                         <h3 class='text-xl leading-tight break-words overflow-hidden line-clamp-3' style='
                             display: -webkit-box;
                             -webkit-line-clamp: 3;
@@ -81,13 +85,14 @@
                             text-overflow: ellipsis;'>
                             $title
                         </h3>
+
                         <p class='text-gray-400 text-sm'>$visualizations views • $create_at</p>
                     </div>
 
                     <!-- Foto do Usuário -->
 
                     <div class='absolute inset-0 imagem flex items-center justify-end p-5'>
-                        <div class='w-[75px] h-[75px] flex items-center justify-center'>
+                        <div class='w-[75px] h-[75px] relative flex items-center justify-center'>
                             <div class='flex-1 absolute'>
                                 <img src='$photo_url' class='w-full h-full object-cover rounded-full'>
                             </div>

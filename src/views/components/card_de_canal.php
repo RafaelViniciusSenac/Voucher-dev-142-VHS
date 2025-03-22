@@ -27,8 +27,8 @@
 
                 <!-- Informações do vídeo -->
 
-                <div class='p-4 text-white flex flex-col justify-between h-[45%]'>
-                    <p class='text-gray-400 text-sm'>$username</p>
+                <div class='p-4 text-white flex flex-col justify-between h-[50%]'>
+                    <p class='text-gray-400 text-base'>$username</p>
 
                     <h3 class='text-xl leading-tight break-words overflow-hidden line-clamp-3' style='
                         display: -webkit-box;
