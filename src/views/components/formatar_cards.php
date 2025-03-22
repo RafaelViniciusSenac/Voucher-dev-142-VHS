@@ -7,6 +7,7 @@
             "username" => "Canal Dev",
             "thumbnail" => "https://t.ctcdn.com.br/69rFkwz-cdviPGZn2p_l6rJH0UA=/1200x675/smart/i533291.png",
             "photo" => "https://cdn.awsli.com.br/10/10790/produto/292478529/fix-copo-bola-foto-1-7hxddc8b9q.jpg",
+            "account_type" => "verified",
             "views" => 1250000,
             "created_at" => "2024-03-10 15:00:00"
         ]
@@ -17,6 +18,16 @@
 <!-- # -->
 
 <?php
+
+    // VERIFICAR CONTA
+
+    function verificarConta($tipo) {
+        if ($tipo == "verified") {
+            return true;
+        } if ($tipo == "padrão") {
+            return false;
+        }
+    }
 
     // FORMATAÇÃO DE DURAÇÃO
 

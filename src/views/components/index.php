@@ -2,6 +2,7 @@
 
     require_once '../components/card_de_video.php';
     require_once '../components/card_de_canal.php';
+    require_once '../components/meu_card.php';
 
 ?>
 
@@ -30,9 +31,11 @@
             }
             ?>
         </div>
+        
+        <!-- # -->
 
         <div class="flex flex-col text-white items-center w-auto h-auto p-5 gap-5" style="background-color: rgba(255, 255, 255, 0.1); border-radius: 30px;">
-            <h1>Card do canal</h1>
+            <h1>Card de canais</h1>
 
             <?php 
             foreach ($videos as $video) {
@@ -41,25 +44,21 @@
             ?>
         </div>
 
+        <!-- # -->
+
         <div class="flex flex-col text-white items-center w-auto h-auto p-5 gap-5" style="background-color: rgba(255, 255, 255, 0.1); border-radius: 30px;">
-            <h1>Meus vídeos/cards</h1>
+            <h1>Meus cards</h1>
 
             <?php 
-            // foreach () {
-            //     echo gerarCard($);
-            // }
+            foreach ($videos as $video) {
+                echo gerarMeuCard($video);
+            }
             ?>
         </div>
 
-        <div class="flex flex-col text-white items-center w-auto h-auto p-5 gap-5" style="background-color: rgba(255, 255, 255, 0.1); border-radius: 30px;">
-            <h1>Meus eventos</h1>
-
-            <?php 
-            // foreach () {
-            //     echo gerarCard($);
-            // }
-            ?>
-        </div>
+        <!-- <div class="flex flex-col text-white items-center w-auto h-auto p-5 gap-5" style="background-color: rgba(255, 255, 255, 0.1); border-radius: 30px;">
+            <h1>Meus eventos - Cake</h1>
+        </div> -->
     </div>
 
 </body>
