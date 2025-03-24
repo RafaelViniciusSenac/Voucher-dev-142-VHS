@@ -24,8 +24,10 @@ class ListVideoController {
                 ];
             }
 
+            $model = new VideoModel();
 
-            $listVideos = listMostPopularVideo();
+
+            $listVideos = $model->listMostPopularVideo();
             if (empty($listVideos)){
                 http_response_code(400);
                 return [
