@@ -11,3 +11,4 @@ body.classList.toggle('menu')
 search.addEventListener('click', function() {
 header.classList.toggle('header')   
 })
+
