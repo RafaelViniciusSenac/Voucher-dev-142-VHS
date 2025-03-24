@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const texts = document.querySelectorAll(".menu-text");
     const divider = document.querySelector(".divider");
     const divides = document.querySelector(".divides");
+    const toggleButton = document.getElementById("barrinha");
     const categoriaTitle = document.getElementById("categoria-title");
    
     toggleButton.addEventListener("click", function () {
@@ -72,6 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (iconDiv) iconDiv.classList.add("bg-[#660BAD]", "bg-opacity-100");
                 if (icon) icon.style.filter = "brightness(0) invert(1)";
                 if (text) text.classList.add("text-white");
+
+                
 
             });
         });

@@ -1,14 +1,15 @@
 <?php 
 
+
     namespace src\views\components\header;
     function HeaderComponent(){
 
         echo '
         <header id="header" class="flex items-center justify-between p-5 shadow-md">
         <div class="flex items-center gap-4">
-          <button id="menu" class="p-2 rounded-lg">
-              <img src="../../../../public/header/Menu.svg" alt="">
-          </button>
+           <button id="menu" class="p-2 rounded-lg">
+                <img src="../../../../public/icons/barrinha.svg" alt="" id="barrinha">
+            </button>
           <img src="../../../../public/logos/Logo.svg" alt="Logo" class="h-8">
         </div>
       
@@ -23,3 +24,4 @@
       <script src="./script.js"></script>
         ';
     }
+HeaderComponent();

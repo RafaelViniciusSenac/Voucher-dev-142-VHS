@@ -1,7 +1,11 @@
 <?php 
 
-    namespace src\views\components\barra_lateral;
-    function BarraLateralComponent(){
+namespace src\views\components\barra_lateral;
+
+require_once __DIR__ . '/../header/headerComponent.php';
+use function src\views\components\header\HeaderComponent;
+
+function BarraLateralComponent(){
 
         echo ' 
         <script src="https://cdn.tailwindcss.com"></script>
@@ -96,4 +100,7 @@
             <script src="script.js"></script>
         ';
     }
+
 BarraLateralComponent();
+HeaderComponent();
+
