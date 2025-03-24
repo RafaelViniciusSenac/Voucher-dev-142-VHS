@@ -3,6 +3,7 @@
     require_once '../components/card_de_video.php';
     require_once '../components/card_de_canal.php';
     require_once '../components/meu_card.php';
+    require_once '../components/card_de_evento.php';
 
 ?>
 
@@ -56,9 +57,15 @@
             ?>
         </div>
 
-        <!-- <div class="flex flex-col text-white items-center w-auto h-auto p-5 gap-5" style="background-color: rgba(255, 255, 255, 0.1); border-radius: 30px;">
+        <div class="flex flex-col text-white items-center w-auto h-auto p-5 gap-5" style="background-color: rgba(255, 255, 255, 0.1); border-radius: 30px;">
             <h1>Meus eventos - Cake</h1>
-        </div> -->
+
+            <?php
+            foreach ($videos as $video) {
+                echo gerarCardEvento($video);
+            }
+            ?>
+        </div>
     </div>
 
 </body>
