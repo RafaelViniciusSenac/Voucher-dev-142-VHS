@@ -1,11 +1,11 @@
 <?php
 
-    require_once '../components/cards/formatCard.php';
-    require_once '../components/cards/videoCard.php';
+    require_once '../cards/formatCard.php';
+    require_once '../cards/videoCard.php';
 
-    require_once '../components/cards/channelCard.php';
-    require_once '../components/cards/eventCard.php';
-    require_once '../components/cards/myCard.php';
+    require_once '../cards/channelCard.php';
+    require_once '../cards/eventCard.php';
+    require_once '../cards/myCard.php';
 
 ?>
 

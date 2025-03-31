@@ -51,7 +51,7 @@
                             </div>
                             
                             <div class='w-[75px] h-[75px] absolute'>
-                                <img src='../../../public/icons/verified.svg' class='w-full h-full'>
+                                <img src='../../../../public/icons/verified.svg' class='w-full h-full'>
                             </div>
                         </div>
                     </div>

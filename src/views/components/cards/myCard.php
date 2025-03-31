@@ -43,21 +43,21 @@
                     <div class='flex justify-between'>
                         <div class='flex gap-2'>
                             <div>
-                                <img src='../../../public/icons/message_icon.svg' class='w-full h-full'>
+                                <img src='../../../../public/icons/message_icon.svg' class='w-full h-full'>
                             </div>
                             <p class='text-gray-400 text-lg'>$comments</p>
                         </div>
 
                         <div class='flex gap-2'>
                             <div>
-                                <img src='../../../public/icons/like.svg' class='w-full h-full'>
+                                <img src='../../../../public/icons/like.svg' class='w-full h-full'>
                             </div>
                             <p class='text-gray-400 text-lg'>$likes</p>
                         </div>
 
                         <div class='flex gap-2'>
                             <div>
-                                <img src='../../../public/icons/eye.svg' class='w-full h-full'>
+                                <img src='../../../../public/icons/eye.svg' class='w-full h-full'>
                             </div>
                             <p class='text-gray-400 text-lg'>$visualizations</p>
                         </div>
