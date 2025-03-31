@@ -2,14 +2,14 @@
 
     $videos = [
         [
-            "duration" => 360,
-            "title" => "Como aprender programação do zero e se tornar um excelente desenvolvedor full stack",
-            "username" => "Canal Dev",
-            "thumbnail" => "https://t.ctcdn.com.br/69rFkwz-cdviPGZn2p_l6rJH0UA=/1200x675/smart/i533291.png",
-            "photo" => "https://cdn.awsli.com.br/10/10790/produto/292478529/fix-copo-bola-foto-1-7hxddc8b9q.jpg",
-            "account_type" => "verified",
-            "views" => 1250000,
-            "created_at" => "2024-03-10 15:00:00"
+        "duration" => 360,
+        "title" => "Como aprender programação do zero e se tornar um excelente desenvolvedor full stack",
+        "username" => "Canal Dev",
+        "thumbnail" => "https://t.ctcdn.com.br/69rFkwz-cdviPGZn2p_l6rJH0UA=/1200x675/smart/i533291.png",
+        "photo" => "https://cdn.awsli.com.br/10/10790/produto/292478529/fix-copo-bola-foto-1-7hxddc8b9q.jpg",
+        "account_type" => "verified",
+        "views" => 1250000,
+        "created_at" => "2024-03-10 15:00:00"
         ]
     ];
 
@@ -21,62 +21,63 @@
 
     // VERIFICAR CONTA
 
-    function verificarConta($tipo) {
-        if ($tipo == "verified") {
+    function verifyTypeAccount($type) {
+        if ($type == "verified") {
             return true;
-        } if ($tipo == "padrão") {
+        } if ($type == "padrão") {
             return false;
         }
     }
 
     // FORMATAÇÃO DE DURAÇÃO
 
-    function formatarDuracao($segundos) {
+    function formatTime($seconds) {
 
-        $horas = floor($segundos / 3600);
-        $min = floor(($segundos % 3600) / 60);
-        $seg = $segundos % 60;
-        if ($horas > 0) {
-            return sprintf("%d:%02d:%02d", $horas, $min, $seg);
+        $hours = floor($seconds / 3600);
+        $minutes = floor(($seconds % 3600) / 60);
+        $seconds = $seconds % 60;
+
+        if ($hours > 0) {
+            return sprintf("%d:%02d:%02d", $hours, $minutes, $seconds);
         }
 
-        return sprintf("%d:%02d", $min, $seg);
+        return sprintf("%d:%02d", $minutes, $seconds);
     }
     
     // FORMATAÇÃO DE VISUALIZAÇÕES
 
-    function formatarVisualizacoes($visualizacoes) {
+    function formatViews($visualizations) {
 
-        if ($visualizacoes >= 1000000000) {
-            return round($visualizacoes / 1000000000, 1) . 'B';
-        } elseif ($visualizacoes >= 1000000) {
-            return round($visualizacoes / 1000000, 1) . 'M';
-        } elseif ($visualizacoes >= 1000) {
-            return round($visualizacoes / 1000, 1) . 'K';
+        if ($visualizations >= 1000000000) {
+            return round($visualizations / 1000000000, 1) . 'B';
+        } elseif ($visualizations >= 1000000) {
+            return round($visualizations / 1000000, 1) . 'M';
+        } elseif ($visualizations >= 1000) {
+            return round($visualizations / 1000, 1) . 'K';
         }
 
-        return $visualizacoes;
+        return $visualizations;
     }
 
     // FORMATAÇÃO DE DATA DE POSTAGEM
 
-    function tempoDecorrido($data) {
+    function formatDate($date) {
 
-        $segundos = time() - strtotime($data);
-        $minutos = floor($segundos / 60);
-        $horas = floor($minutos / 60);
-        $dias = floor($horas / 24);
-        $semanas = floor($dias / 7);
-        $meses = floor($dias / 30);
-        $anos = floor($dias / 365);
+        $seconds = time() - strtotime($date);
+        $minutes = floor($seconds / 60);
+        $hours = floor($minutes / 60);
+        $days = floor($hours / 24);
+        $weeks = floor($days / 7);
+        $months = floor($days / 30);
+        $years = floor($days / 365);
         
-        if ($anos > 0) return "$anos ano(s) atrás";
-        if ($meses > 0) return "$meses mês atrás";
-        if ($meses > 1) return "$meses meses atrás";
-        if ($semanas > 0) return "$semanas semana(s) atrás";
-        if ($dias > 0) return "$dias dia(s) atrás";
-        if ($horas > 0) return "$horas hora(s) atrás";
-        if ($minutos > 0) return "$minutos minuto(s) atrás";
+        if ($years > 0) return "$years ano(s) atrás";
+        if ($months > 0) return "$months mês atrás";
+        if ($months > 1) return "$months meses atrás";
+        if ($weeks > 0) return "$weeks semana(s) atrás";
+        if ($days > 0) return "$days dia(s) atrás";
+        if ($hours > 0) return "$hours hora(s) atrás";
+        if ($minutes > 0) return "$minutes minuto(s) atrás";
 
         return "agora mesmo";
     }
