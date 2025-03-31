@@ -1,6 +1,6 @@
 <?php
 
-    require_once './formatar_cards.php';
+    require_once './formatCard.php';
 
     function gerarCardCanal($video) {
         $thumbnail_url = $video['thumbnail'];

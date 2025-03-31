@@ -1,9 +1,11 @@
 <?php
 
-    require_once '../components/card_de_video.php';
-    require_once '../components/meu_card.php';
-    require_once '../components/card_de_canal.php';
-    require_once '../components/card_de_evento.php';
+    require_once '../components/cards/formatCard.php';
+    require_once '../components/cards/videoCard.php';
+
+    require_once '../components/cards/channelCard.php';
+    require_once '../components/cards/eventCard.php';
+    require_once '../components/cards/myCard.php';
 
 ?>
 
