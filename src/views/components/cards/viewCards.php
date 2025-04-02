@@ -30,7 +30,7 @@
 
             <?php 
             foreach ($videos as $video) {
-                echo gerarCardVideo($video);
+                echo createVideoCard($video);
             }
             ?>
         </div>
@@ -42,7 +42,7 @@
 
             <?php 
             foreach ($videos as $video) {
-                echo gerarCardCanal($video);
+                echo createChannelCard($video);
             }
             ?>
         </div>
@@ -54,7 +54,7 @@
 
             <?php 
             foreach ($videos as $video) {
-                echo gerarMeuCard($video);
+                echo createMyCard($video);
             }
             ?>
         </div>
@@ -66,7 +66,7 @@
 
             <?php
             foreach ($videos as $video) {
-                echo gerarCardEvento($video);
+                echo createEventCard($video);
             }
             ?>
         </div>

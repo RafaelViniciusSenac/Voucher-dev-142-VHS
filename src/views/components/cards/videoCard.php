@@ -2,7 +2,7 @@
 
     require_once './formatCard.php';
 
-    function gerarCardVideo($video) {
+    function createVideoCard($video) {
         $thumbnail_url = $video['thumbnail'];
         $username = $video['username'];
         $photo_url = $video['photo'];
@@ -10,11 +10,11 @@
         $url = '#';
 
         // $account_type = verificarConta($video['account_type']);
-        $duration = formatarDuracao($video['duration']);
-        $visualizations = formatarVisualizacoes($video['views']);
-        $create_at = tempoDecorrido($video['created_at']);
+        $duration = formatTime($video['duration']);
+        $visualizations = formatViews($video['views']);
+        $create_at = formatDate($video['created_at']);
 
-        if (verificarConta($video['account_type']) == true) {
+        if (verifyTypeAccount($video['account_type']) == true) {
             return "
                 <a href='$url' class='cursor-pointer relative w-[320px] h-[400px] bg-[#1e1e2a] rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300'>
                     
@@ -60,7 +60,7 @@
             ";
         }
 
-        if (verificarConta($video['account_type']) == false) {
+        if (verifyTypeAccount($video['account_type']) == false) {
             return "
                 <a href='$url' class='cursor-pointer relative w-[320px] h-[400px] bg-[#1e1e2a] rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300'>
                     

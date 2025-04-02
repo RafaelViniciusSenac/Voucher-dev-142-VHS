@@ -2,7 +2,7 @@
 
     require_once './formatCard.php';
 
-    function gerarMeuCard($video) {
+    function createMyCard($video) {
         $thumbnail_url = $video['thumbnail'];
         $username = $video['username'];
         $title = $video['title'];
@@ -10,9 +10,9 @@
         $comments = 12;
         $likes = 4.5;
 
-        $duration = formatarDuracao($video['duration']);
-        $visualizations = formatarVisualizacoes($video['views']);
-        $create_at = tempoDecorrido($video['created_at']);
+        $duration = formatTime($video['duration']);
+        $visualizations = formatViews($video['views']);
+        $create_at = formatDate($video['created_at']);
         
         return "
             <a href='$url' class='cursor-pointer w-[320px] h-[400px] bg-[#1e1e2a] rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300'>
