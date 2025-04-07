@@ -4,12 +4,13 @@
 
     function createEventCard($video) {
         $thumbnail_url = $video['thumbnail'];
-        $username = $video['username'];
+        $type_card = $video['type_card'];
         $title = $video['title'];
         $url = '#';
+        $description = $video['description'];
         
-        $duration = formatTime($video['duration']);
         $visualizations = formatViews($video['views']);
+        $create_at_title = formatDateEvent($video['created_at']);
         $create_at = formatDate($video['created_at']);
         
         return "
@@ -28,8 +29,8 @@
                 <!-- Informações do vídeo -->
 
                 <div class='p-3 text-white flex flex-col justify-between h-[50%]'>
-                <p class='text-gray-400 text-base'>09/08 17h15 | Gratuito | Online</p>
-                <p class='text-gray-400 text-base'>Evento</p>
+                <p class='text-gray-400 text-base'>$create_at_title | $description</p>
+                <p class='text-gray-400 text-base'>$type_card</p>
 
                     <h3 class='text-xl leading-tight break-words overflow-hidden line-clamp-3' style='
                         display: -webkit-box;

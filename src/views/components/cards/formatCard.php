@@ -2,6 +2,8 @@
 
     $videos = [
         [
+        "type_card" => "Evento",
+        "description" => "Gratuito",
         "duration" => 360,
         "title" => "Como aprender programação do zero e se tornar um excelente desenvolvedor full stack",
         "username" => "Canal Dev",
@@ -9,7 +11,7 @@
         "photo" => "https://cdn.awsli.com.br/10/10790/produto/292478529/fix-copo-bola-foto-1-7hxddc8b9q.jpg",
         "account_type" => "verified",
         "views" => 1250000,
-        "created_at" => "2024-03-10 15:00:00"
+        "created_at" => "2024-03-10 15:00:00" 
         ]
     ];
 
@@ -18,6 +20,12 @@
 <!-- # -->
 
 <?php
+
+    function formatDateEvent($date) {
+        $data = new DateTime($date);
+        $data_formatada = $data->format("d/m/Y H:i");
+        return $data_formatada;
+    }
 
     // VERIFICAR CONTA
 
