@@ -38,7 +38,3 @@ function BarrinhaComponent(){
     </svg>
     ';
 }
-
-
-
- 
