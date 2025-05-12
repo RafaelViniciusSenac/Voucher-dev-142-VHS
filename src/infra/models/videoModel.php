@@ -13,22 +13,14 @@ class VideoModel {
     }
 
     public function listMostPopularVideo(): array {
-        $sql = "SELECT VIDEO.id_user ,VIDEO.nome AS video_nome, SUM(VIEW.views) AS total_views
-        FROM VIDEO
-        JOIN VIEW ON VIDEO.id = VIEW.id_video
-        GROUP BY VIDEO.id
-        ORDER BY total_views DESC LIMIT 4";
+        $sql = "SELECT id,url,title ,author_id,views from videos GROUP BY videos.views DESC LIMIT 4";
         $stmt = $this->connection->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function listMostPopularVideoCategory(int $category_id): array{
-        $sql = "SELECT VIDEO.id_user ,VIDEO.nome AS video_nome, SUM(VIEW.views) AS total_views
-        FROM VIDEO
-        JOIN VIEW ON VIDEO.id = VIEW.id_video WHERE VIDEO.category_id = :category_id
-        GROUP BY VIDEO.id
-        ORDER BY total_views DESC LIMIT 8";
+    public function listMostPopularVideoCategory(string $category_id): array{
+        $sql = "SELECT id,url,title ,author_id,views FROM videos where category_id = :category_id ORDER BY videos.views DESC LIMIT 4";
         $stmt = $this->connection->prepare($sql);
         $stmt->bindParam(":category_id", $category_id);
         $stmt->execute();

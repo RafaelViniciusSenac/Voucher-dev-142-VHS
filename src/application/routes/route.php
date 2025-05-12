@@ -15,6 +15,6 @@ $dotenv->load();
 $router = new Router();
 
 $router->post('/api/v1/auth/signup', SignUpController::class);
-$router->post('/api/v1/videos/popular', ListVideoController::class);
+$router->get('/api/v1/videos/popular', ListVideoController::class);
 
 $router->run();
