@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../../application/routes/route.config.php';
 require_once __DIR__ . '/../../vendor/routes.autoload.php';
 require_once __DIR__ . '/../../../vendor/autoload.php';
+require_once __DIR__ . '/../../controllers/listVideo.controller.php';
 
 use Dotenv\Dotenv;
 use Src\Application\Routes\Router;
